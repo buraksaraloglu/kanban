@@ -1,0 +1,62 @@
+@import "../../../../theme/variables.scss";
+
+$color-background-light-active: darken($background-color-light, 5%);
+
+.divider {
+  border-top: 1px solid $divider-light;
+  margin: 0.625rem 0;
+  color: $divider-light;
+}
+
+.itemCount {
+  padding: 0.5rem;
+  text-align: center;
+  color: $primary-color;
+  border-radius: 0.5rem;
+  background-color: rgba($primary-color, 0.1);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.listItems {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid rgba($dark-800, 0.07);
+  max-height: 100%;
+
+  transition: all 0.2s ease-in-out;
+  scroll-snap-align: start;
+}
+
+.columnHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-white;
+  color: $dark-800;
+  font-weight: bold;
+  border-radius: calc($grid * 2);
+  transition: background-color 0.2s ease;
+  margin: 0 0 0.375rem;
+
+  h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: $dark-800;
+
+    cursor: default;
+  }
+}
+
+.dragging {
+  background-color: lightblue;
+}

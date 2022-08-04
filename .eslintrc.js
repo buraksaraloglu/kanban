@@ -8,7 +8,6 @@ module.exports = {
   ],
   rules: {
     'react/prop-types': 'off',
-    indent: ['error', 2, { SwitchCase: 1 }],
     'no-console': 'off',
     'sort-class-members/sort-class-members': [
       2,

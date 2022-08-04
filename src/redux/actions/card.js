@@ -1,9 +1,9 @@
 import { CARD_ACTIONS } from '../../constants/action-types';
 
-export const addCard = (listId, text) => {
+export const addCard = ({ listId, title }) => {
   return {
     type: CARD_ACTIONS.ADD,
-    payload: { text, listId },
+    payload: { listId, title },
   };
 };
 

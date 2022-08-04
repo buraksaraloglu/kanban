@@ -1,47 +1,58 @@
-import uuid from 'react-uuid';
+import { v4 as uuid } from 'uuid';
+import { faker } from '@faker-js/faker';
+
+import { CARD_TYPES } from '../../constants/card';
 import { CARD_ACTIONS, LIST_ACTIONS } from '../../constants/action-types';
 
-const InitialState = [
-  {
-    title: 'To-do',
+const createRandomCard = () => {
+  const randomCard = {
     id: uuid(),
-    cards: [
-      {
-        id: uuid(),
-        text: 'Bring milk and fruits from grocery store',
-      },
-      {
-        id: uuid(),
-        text: 'Review final year project thesis',
-      },
-      {
-        id: uuid(),
-        text: 'Push all codes from latest project to Git and write a Read-me for it',
-      },
-    ],
+    title: faker.lorem.sentence(),
+    slug: `TEST-${faker.datatype.number(50)}`,
+    priority: faker.datatype.number(2),
+    type: faker.datatype.number(1) === 0 ? CARD_TYPES.BUG : CARD_TYPES.TASK,
+    user: {
+      name: faker.name.findName(),
+      avatar: faker.image.avatar(),
+    },
+  };
+  return randomCard;
+};
+
+const generateRandomCards = numberOfCards => {
+  const cards = [];
+  for (let i = 0; i < numberOfCards; i++) {
+    cards.push(createRandomCard());
+  }
+  return cards;
+};
+
+const initialState = [
+  {
+    title: 'To Do',
+    id: uuid(),
+    cards: generateRandomCards(Math.floor(Math.random() * 2) + 1),
+  },
+  {
+    title: 'Done',
+    id: uuid(),
+    cards: generateRandomCards(Math.floor(Math.random() * 2) + 1),
   },
 ];
 
-const listReducer = (state = InitialState, action) => {
-  const newList = {
-    title: action.payload,
-    id: uuid(),
-    cards: [],
-  };
-
+const listReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LIST_ACTIONS.ADD_LIST:
+    case LIST_ACTIONS.ADD: {
+      const newList = {
+        title: action.payload.title,
+        id: uuid(),
+        cards: [],
+      };
       return [...state, newList];
-
+    }
     case LIST_ACTIONS.DRAG: {
-      const {
-        droppableIdStart,
-        droppableIdEnd,
-        droppableIndexStart,
-        droppableIndexEnd,
-        draggableId,
-        type,
-      } = action.payload;
+      const { droppableIdStart, droppableIdEnd, droppableIndexStart, droppableIndexEnd, type } =
+        action.payload;
 
       const newDragState = [...state];
       if (type === 'list') {
@@ -88,19 +99,26 @@ const listReducer = (state = InitialState, action) => {
     }
     case CARD_ACTIONS.ADD: {
       const newCard = {
-        text: action.payload.text,
         id: uuid(),
+        title: action.payload.title,
+        slug: `TEST-${faker.datatype.number(50)}`,
+        priority: faker.datatype.number(2),
+        type: faker.datatype.number(1) === 0 ? CARD_TYPES.BUG : CARD_TYPES.TASK,
+        user: {
+          name: faker.name.findName(),
+          avatar: faker.image.avatar(),
+        },
       };
-      const newState = JSON.parse(JSON.stringify(state)).map(i => {
-        if (i.id === action.payload.listId) {
-          return {
-            ...i,
-            cards: [...i.cards, newCard],
-          };
-        } else {
-          return i;
-        }
+
+      const newState = [...state].map(list => {
+        if (list.id !== action.payload.listId) return list;
+
+        return {
+          ...list,
+          cards: [...list.cards, newCard],
+        };
       });
+
       return newState;
     }
     case CARD_ACTIONS.EDIT: {

@@ -1,0 +1,47 @@
+@import "./theme/variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background-color-light;
+  font-family: "Inter", sans-serif;
+  height: calc(100vh - 1rem);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0 1rem;
+
+  @media screen and (min-width: 768px) {
+    padding: 1rem 4rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 1rem 6rem;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 1rem 8rem;
+  }
+
+  .header {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    overflow: auto;
+    margin: 1rem 0;
+
+    transition: padding 0.2s ease-in-out;
+
+    .logo {
+      display: inline-block;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+}

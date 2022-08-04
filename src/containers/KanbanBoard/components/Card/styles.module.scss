@@ -1,0 +1,67 @@
+@import "../../../../theme/variables.scss";
+
+.itemType {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.125rem;
+  border-radius: 0.25rem;
+  color: white;
+
+  &.bug {
+    background-color: #fe6b38;
+  }
+
+  &.task {
+    background-color: #ffd166;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  border: 1px solid rgba($dark-800, 0.05);
+  border-radius: 0.25rem;
+  margin: 0.375rem 0;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .dragging {
+    background-color: lightblue;
+  }
+
+  .content {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+    color: $dark-600;
+
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2; // number of lines to show
+    -webkit-box-orient: vertical;
+  }
+
+  .metaContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    .group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      line-height: 1;
+
+      .slug {
+        color: $dark-400;
+        font-weight: 300;
+      }
+    }
+  }
+}

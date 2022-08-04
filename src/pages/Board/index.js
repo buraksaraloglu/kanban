@@ -1,7 +1,13 @@
 import React from 'react';
 
+import KanbanBoard from '../../containers/KanbanBoard/board';
+
 const Board = () => {
-  return <div>board</div>;
+  return (
+    <>
+      <KanbanBoard />
+    </>
+  );
 };
 
 export default Board;

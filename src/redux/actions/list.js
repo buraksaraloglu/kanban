@@ -1,9 +1,9 @@
 import { LIST_ACTIONS } from '../../constants/action-types';
 
-export const addList = title => {
+export const addList = ({ title }) => {
   return {
     type: LIST_ACTIONS.ADD,
-    payload: title,
+    payload: { title },
   };
 };
 
