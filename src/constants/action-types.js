@@ -1,13 +1,13 @@
 export const CARD_ACTIONS = {
   ADD: 'ADD_CARD',
-  EDIT: 'EDIT_CARD',
-  DELETE: 'DELETE_CARD',
+};
+
+export const ADD_MODAL_ACTION_TYPES = {
+  CARD: 'CARD',
+  LIST: 'LIST',
 };
 
 export const LIST_ACTIONS = {
   ADD: 'ADD_LIST',
-  EDIT_TITLE: 'EDIT_LIST_TITLE',
-  DELETE: 'DELETE_LIST',
-
   DRAG: 'DRAG_CARD',
 };

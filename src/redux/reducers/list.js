@@ -74,40 +74,14 @@ const listReducer = (state = initialState, action) => {
       }
       return newDragState;
     }
-    case LIST_ACTIONS.EDIT_TITLE: {
-      const { listId, newTitle } = action.payload;
-      let elementPos = state
-        .map(function (x) {
-          return x.id;
-        })
-        .indexOf(listId);
-      const list = state[elementPos];
-      list.title = newTitle;
-      const newListState = state.map(i => i);
-      return newListState;
-    }
-    case LIST_ACTIONS.DELETE: {
-      const { listId } = action.payload;
-      const newDelState = JSON.parse(JSON.stringify(state));
-      let elementPos = state
-        .map(function (x) {
-          return x.id;
-        })
-        .indexOf(listId);
-      newDelState.splice(elementPos, 1);
-      return newDelState;
-    }
+
     case CARD_ACTIONS.ADD: {
       const newCard = {
         id: uuid(),
         title: action.payload.title,
         slug: `TEST-${faker.datatype.number(50)}`,
-        priority: faker.datatype.number(2),
-        type: faker.datatype.number(1) === 0 ? CARD_TYPES.BUG : CARD_TYPES.TASK,
-        user: {
-          name: faker.name.findName(),
-          avatar: faker.image.avatar(),
-        },
+        priority: action.payload.priority,
+        type: action.payload.type,
       };
 
       const newState = [...state].map(list => {
@@ -121,41 +95,8 @@ const listReducer = (state = initialState, action) => {
 
       return newState;
     }
-    case CARD_ACTIONS.EDIT: {
-      const { id, newText, listId } = action.payload;
-      const newCardState = JSON.parse(JSON.stringify(state));
-      let elementPos = newCardState
-        .map(function (x) {
-          return x.id;
-        })
-        .indexOf(listId);
-      let cardPos = newCardState[elementPos].cards
-        .map(function (x) {
-          return x.id;
-        })
-        .indexOf(id);
-      const card = newCardState[elementPos].cards[cardPos];
-      card.text = newText;
-      return newCardState;
-    }
-    case CARD_ACTIONS.DELETE: {
-      const { listId, id } = action.payload;
-      const newCardDelState = JSON.parse(JSON.stringify(state));
-      let elementPos = newCardDelState
-        .map(function (x) {
-          return x.id;
-        })
-        .indexOf(listId);
-      let cardPos = newCardDelState[elementPos].cards
-        .map(function (x) {
-          return x.id;
-        })
-        .indexOf(id);
-      newCardDelState[elementPos].cards.splice(cardPos, 1);
-
-      return newCardDelState;
-    }
     default:
+      console.log('Invalid action type');
       return state;
   }
 };

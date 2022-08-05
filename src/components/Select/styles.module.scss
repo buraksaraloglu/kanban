@@ -1,0 +1,68 @@
+@import "../../theme/variables.scss";
+
+.select {
+  position: relative;
+
+  svg {
+    position: absolute;
+    right: 8px;
+    top: calc(50% - 3px);
+    width: 8px;
+    height: 6px;
+    stroke-width: 2px;
+    stroke: #9098a9;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+  }
+
+  select {
+    -webkit-appearance: none;
+    padding: 0.25rem 1.25rem 0.25rem 0.5rem;
+    width: 100%;
+    border: 1px solid #e8eaed;
+    border-radius: 0.25rem;
+    background: white;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.2s ease;
+
+    &:required:invalid {
+      color: #5a667f;
+    }
+
+    option {
+      color: #223254;
+      &[value=""][disabled] {
+        display: none;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+
+      & + svg {
+        stroke: $primary-color;
+      }
+    }
+
+    &:hover {
+      border-color: $primary-color;
+
+      & + svg {
+        stroke: $primary-color;
+      }
+    }
+  }
+}
+
+.sprites {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  user-select: none;
+}

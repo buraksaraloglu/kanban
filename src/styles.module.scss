@@ -10,22 +10,19 @@ body {
   height: calc(100vh - 1rem);
 }
 
+hr {
+  border: 0;
+  border-top: 1px solid $divider-light;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 0 1rem;
+  padding: 0.5rem;
 
   @media screen and (min-width: 768px) {
-    padding: 1rem 4rem;
-  }
-
-  @media screen and (min-width: 1024px) {
-    padding: 1rem 6rem;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding: 1rem 8rem;
+    padding: 1rem;
   }
 
   .header {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
+import classNames from 'classnames';
 
 import { Card } from '../Card';
 import { Badge } from '../../../../components/Badge';
-import ActionButton from '../ActionButton';
 import styles from './styles.module.scss';
 
 const ColumnHeader = ({ title, itemCount }) => (
@@ -23,7 +23,7 @@ const BoardColumn = props => {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className={[styles.columnContainer, snapshot.isDragging && styles.dragging].join(' ')}
+          className={classNames(styles.columnContainer, snapshot.isDragging && styles.dragging)}
         >
           <ColumnHeader title={list.title} itemCount={list.cards.length} />
           <hr className={styles.divider} />
@@ -38,7 +38,6 @@ const BoardColumn = props => {
                   <Card key={item.id} item={item} index={index} />
                 ))}
                 {provided.placeholder}
-                <ActionButton listId={list.id} type="card" />
               </div>
             )}
           </Droppable>

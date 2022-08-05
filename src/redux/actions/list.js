@@ -27,22 +27,3 @@ export const sort = (
     },
   };
 };
-
-export const editTitle = (listId, newTitle) => {
-  return {
-    type: LIST_ACTIONS.EDIT_TITLE,
-    payload: {
-      listId,
-      newTitle,
-    },
-  };
-};
-
-export const deleteList = listId => {
-  return {
-    type: LIST_ACTIONS.DELETE,
-    payload: {
-      listId,
-    },
-  };
-};

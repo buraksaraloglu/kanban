@@ -1,0 +1,133 @@
+@import "../../theme/variables.scss";
+
+.divider {
+  border-top: 1px solid $divider-light;
+  margin: 1rem 0;
+  color: $divider-light;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.centeredContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 35rem;
+  width: 100%;
+  padding: 2rem;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-height: 80vh;
+  min-height: 10rem;
+  height: 100%;
+
+  background: white;
+  color: white;
+  z-index: 10;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading {
+  color: $dark-800;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+.closeModalButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  padding: 0;
+
+  border: 0;
+  border-radius: 8px;
+  color: dimgray;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: orangered;
+    background: $background-color-light;
+  }
+}
+
+.deleteBtn {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 11px 28px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  border: none;
+  color: #fff;
+  background: #ff3e4e;
+  transition: all 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.6);
+    transform: translateY(-5px);
+    background: #ff3e4e;
+  }
+}
+
+.cancelBtn {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 11px 28px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  border: none;
+  color: #2c3e50;
+  background: #fcfcfc;
+  transition: all 0.25s ease;
+
+  &:hover {
+    box-shadow: none;
+    transform: none;
+    background: whitesmoke;
+  }
+}
+
+.primaryActionButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  border-radius: 0.25rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-color;
+    box-shadow: 0px 3px 22px 2px rgb($primary-color, 0.4);
+    color: white;
+  }
+}

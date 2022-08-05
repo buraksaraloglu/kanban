@@ -1,0 +1,16 @@
+.itemType {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.125rem;
+  border-radius: 0.25rem;
+  color: white;
+
+  &.bug {
+    background-color: #fe6b38;
+  }
+
+  &.task {
+    background-color: #ffd166;
+  }
+}

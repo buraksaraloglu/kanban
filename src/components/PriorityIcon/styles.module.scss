@@ -1,6 +1,10 @@
 @import "../../theme/variables.scss";
 
 .priorityIcon {
-  height: 1rem;
   color: #dddddd;
+  width: 1.2rem;
+
+  & > * {
+    width: 100%;
+  }
 }

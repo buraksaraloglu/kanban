@@ -8,7 +8,9 @@ import lowPriorityIcon from '../../static/priority-icons/low.svg';
 import styles from './styles.module.scss';
 
 export const PriorityIcon = ({ priority }) => {
-  const Icon = ({ src, alt }) => <img src={src} className={styles.priorityIcon} alt={alt} />;
+  const Icon = ({ src, alt }) => (
+    <div dangerouslySetInnerHTML={{ __html: src }} className={styles.priorityIcon} alt={alt} />
+  );
 
   switch (priority) {
     case ItemPriority.LOW:
