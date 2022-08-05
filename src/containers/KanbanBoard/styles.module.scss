@@ -13,7 +13,7 @@
 .columnsWrapper {
   display: flex;
   flex-flow: column;
-  gap: $grid / 2;
+  gap: calc($grid / 2);
 
   @media screen and (min-width: $screen-sm) {
     display: grid;
