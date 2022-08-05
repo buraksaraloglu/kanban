@@ -49,7 +49,7 @@ export const AddCardForm = ({ handleClose }) => {
     const cardProps = {
       title: e.target.title.value,
       listId: e.target.listId.value,
-      priority: e.target.priority.value,
+      priority: parseInt(e.target.priority.value || ItemPriority.MEDIUM, 10),
       type: e.target.type.value,
     };
 
