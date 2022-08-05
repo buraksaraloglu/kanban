@@ -2,6 +2,16 @@
 
 A kanban board implementation with add card and add list functionality.
 
+[Live Demo](https://kanban-six.vercel.app/)
+
+## Key Features
+
+- Add cards to lists
+- Add lists to board
+- Drag and drop cards between lists
+- Drag and drop lists between boards
+- Responsive design with mobile functionality support
+
 ## Get Started
 
 Clone this repo and install dependencies.
