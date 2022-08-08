@@ -19,6 +19,7 @@ $color-background-light-active: darken($background-color-light, 5%);
 }
 
 .listItems {
+  min-height: 3rem;
   height: 100%;
   overflow-y: auto;
 }
